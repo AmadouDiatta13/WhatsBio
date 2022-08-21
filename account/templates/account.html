@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+    {% block content %}
+    {% load static %}
+    {% if user.is_authenticated %}
+        <!-- Start: LinkedIn-like Profile Box -->
+        <div class="text-center border rounded-0 shadow-sm d-lg-flex flex-column me-auto justify-content-lg-center align-items-lg-center profile-box" style="width: auto;height: auto;background-color: #ffffff;margin: 5px;margin-left: 5rem;margin-top: 5rem;">
+            <div style="height: auto;"><img class="rounded-circle" src="{% static 'assets/img/teacher.png' %}" width="60px" height="60px" style="background-color: rgb(255,255,255);padding: 2px;width: 10rem;height: 10rem;margin-top: 1rem;"></div>
+            <div style="height: auto;">
+                <h4 style="font-family: 'Akaya Kanadaka', serif;font-weight: bold;margin-top: 2rem;">{{user.username}}</h4>
+                <p style="font-size: 12px;width: auto;height: auto;margin-top: 2rem;margin-bottom: 2rem;">Ok</p>
+                <!-- Start: Clean Button (Scale Hover Effect) -->
+                <a href="{% url 'account:logoutaccount' %}">
+                    <button class="btn btn-primary" type="button" style="border-radius: 48px;font-size: 13px;background: rgb(255,60,0);font-family: 'Akaya Kanadaka', serif;font-weight: bold;width: 118.8px;border-width: 0px;height: 46px;text-align: center;margin-bottom: 1rem;">
+                        Se Déconnecter
+                    </button><!-- End: Clean Button (Scale Hover Effect) -->
+                </a>
+            </div>
+        </div><!-- End: LinkedIn-like Profile Box -->
+
+    {% else %}
+        {% load static %}
+       <!-- Start: Registration Form with Photo -->
+       <section class="register-photo" style="width: auto;margin-left: 5rem;">
+        <!-- Start: Form Container -->
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                <h2 class="text-center" style="color: rgb(35,85,105);font-weight: bold;font-family: 'Akaya Kanadaka', serif;">Créer un compte.</h2>
+                    {% if error %}
+                    <h3 class="alert alert-danger mt-3" role="alert">
+                        {{ error }}
+                    </h3>
+                    {% endif %}
+                <div class="mb-3"><input class="form-control" type="text" name="username" placeholder="Nom d'utilisateur"></div>
+                <div class="mb-3"><input class="form-control" type="password" name="password1" placeholder="Mot de Passe"></div>
+                <div class="mb-3"><input class="form-control" type="password" name="password2" placeholder="Repeter le mot de passe"></div>
+                <div class="mb-3">
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary d-block w-100" type="submit" style="color: rgb(255,60,0);font-weight: bold;font-family: 'Akaya Kanadaka', serif;font-size: 18px;">Créer</button>
+                </div>
+                <a class="already" href="{% url 'account:loginaccount' %}" style="color: var(--bs-blue);">Avec vous déjà un compte ? Connectez vous.</a>
+            </form>
+        </div><!-- End: Form Container -->
+    </section><!-- End: Registration Form with Photo --> 
+    {% endif %}
+{% endblock %}

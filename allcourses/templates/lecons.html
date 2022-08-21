@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    <!-- Start: Responsive UI Card 0.2 -->
+    <section style="width: 100%;height: 100%;margin-left: 4rem;margin-right: 0px;">
+        <h1 style="font-family: 'Akaya Kanadaka', serif;color: rgb(35,85,105);text-align: center;font-weight: bold;">{{domaine.name}}</h1>
+        {% if user.is_authenticated %}
+            <div class="d-flex justify-content-center" style="margin-bottom: 25px;">
+                <!-- Start: Clean Button (Scale Hover Effect) -->
+                <a href="{% url 'allcourses:createcour' domaine.id %}">
+                    <button class="btn btn-primary" type="button" style="border-radius: 48px;font-size: 20px;background: rgb(255,60,0);font-family: 'Akaya Kanadaka', serif;font-weight: bold;width: 161.8px;border-width: 0px;text-align: center;">Ajouter un cours</button><!-- End: Clean Button (Scale Hover Effect) -->
+                </a>
+            </div>
+        {% endif %}
+        <div class="d-flex justify-content-center flex-wrap" style="width: auto;">
+        {% if lecons %}
+        {% for lecon in lecons %}
+            <!-- Start: KDEV Responsive Card -->
+            <div class="card" style="width: 18rem;border-top-left-radius: 20px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;box-shadow: 5px 5px 16px 2px rgba(0,0,0,0.25);margin: 20px;min-width: 280px;max-width: 300px;margin-bottom: 20px;margin-right: 20px;margin-top: 20px;margin-left: 20px;text-align: center;">
+                <div style="width: 100%;height: 200px;background: url({{ lecon.image.url }}) center / contain no-repeat;border-top-left-radius: 20px;border-top-right-radius: 20px;"></div>
+                <div class="card-body d-flex flex-column" style="height: 262px;max-height: 250px;">
+                    <div>
+                        <h2 style="font-family: 'Akaya Kanadaka', serif;font-weight: 700;color: rgb(35,85,105);font-size: 16px;">{{ lecon.name }}</h2>
+                        <p style="font-family: ABeeZee, sans-serif;color: #212121;margin-top: 16px;font-size: 14px;text-align: center;">{{ lecon.description }}</p>
+                    </div><a class="card-link align-self-end" data-bss-hover-animate="pulse" href="{% url 'allcourses:detail' lecon.id %}" style="padding: 4px;background: #fc3b00;color: rgb(255,255,255);border-radius: 17px;padding-right: 14px;padding-left: 14px;padding-bottom: 6px;font-family: 'Akaya Kanadaka', serif;margin-top: auto;">Voir le cour</a>
+                </div>
+            </div><!-- End: KDEV Responsive Card -->
+        {% endfor %}
+        {% else %}
+            <h1>Il n'y a rien ici</h1>
+        {% endif %}
+{% endblock content %}
+

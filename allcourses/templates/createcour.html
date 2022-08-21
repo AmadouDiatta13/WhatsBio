@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Start: Beautiful Contact from (animated) -->
+<div class="container container-contact100" style="font-size: 14px;margin-left: 4rem;">
+    <div class="wrap-contact100" style="font-size: 10px;">
+        <form method="POST" enctype="multipart/form-data" class="contact100-form validate-form" style="font-size: 10px;">
+            {% csrf_token %}
+                <!-- Start: title -->
+                <span class="contact100-form-title" style="font-size: 21px;font-weight: bold;font-family: 'Akaya Kanadaka', serif;">Ajouter un cour dans {{ domaine.name }}&nbsp;</span><!-- End: title -->
+                {% if error %}
+                    <div class="alert alert-danger mt-3" role="alert">
+                        {{ error }}
+                    </div>
+                {% endif %}
+                <!-- Start: name -->
+                <div class="wrap-input100 validate-input" data-validate="Entrer le nom du cour">
+                    <input class="form-control input100" type="text" name="name" required="" id="id_name" maxlength="50" placeholder="titre du cour" style="font-size: 14px;height: 36px;margin-bottom: 1rem;"><span class="focus-input100"></span></div><!-- End: name -->
+                <!-- Start: message -->
+                <div class="wrap-input100 validate-input" data-validate="Please enter your message">
+                    <textarea class="form-control input100" name="description" placeholder="Description du cour" required="" id="id_description" style="font-size: 14px;"></textarea><span class="focus-input100"></span></div><!-- End: message -->
+                <div style="width: auto;margin-bottom: 1rem;font-size: 10px;">
+                    <h6 style="font-weight: bold;font-family: 'Akaya Kanadaka', serif;text-align: center;">image</h6>
+                    <input class="form-control custom-file-input" type="file" id="id_image" accept="image/*" name="image" required="" style="width: 336px;font-size: 12px;">
+                </div>
+                <div style="width: auto;margin-bottom: 1rem;">
+                    <h6 style="font-weight: bold;font-family: 'Akaya Kanadaka', serif;text-align: center;">video</h6>
+                    <input class="form-control custom-file-input" type="file" id="id_video" accept="video/*" name="video" required="" style="width: 336px;font-size: 13px;">
+                </div>
+                <div style="width: auto;margin-bottom: 1rem;">
+                    <h6 style="font-weight: bold;font-family: 'Akaya Kanadaka', serif;text-align: center;">document</h6>
+                    <input class="form-control custom-file-input" type="file" id="id_document" name="document" required="" style="width: 336px;font-size: 13px;">
+                </div><!-- Start: Submit button -->
+                <div class="container-contact100-form-btn" style="height: 71px;"><button class="btn btn-primary" type="submit" style="font-family: 'Akaya Kanadaka', serif;font-weight: bold;font-size: 17px;width: 95.1px;height: 46px;border-radius: 25px;">Creer</button></div><!-- End: Submit button -->
+        </form>
+    </div>
+</div><!-- End: Beautiful Contact from (animated) -->
+{% endblock content %}
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="csrfmiddlewaretoken" value="wyMoRWgtMYaD6s4S0Mh424ISHMwjUftkwaol37grU434mSbZbYNFvEUgSqjH4PPV">   
+<label for="id_name">Name&nbsp;:</label>
+<input type="text" name="name" maxlength="50" class="form-control" required="" id="id_name">
+<label for="id_description">Description&nbsp;:</label>
+<textarea name="description" cols="40" rows="4" maxlength="250" class="form-control" required="" id="id_description"></textarea>
+<label for="id_image">Image&nbsp;:</label>
+<input type="file" name="image" accept="image/*" id="id_image">
+<label for="id_video">Video&nbsp;:</label>
+<input type="file" name="video" id="id_video">
+
+<label for="id_document">Document&nbsp;:</label>
+<input type="file" name="document" id="id_document">
+</form>

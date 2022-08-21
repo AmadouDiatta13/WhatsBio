@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    <!-- Start: Article Dual Column -->
+    <section class="article-dual-column" style="width: 100%;margin-left: 65px;margin-right: 0px;padding-right: 15px;height: auto;">
+        <div class="container" style="width: 100%;height: auto;">
+            <div class="row text-center justify-content-center mx-auto" style="width: auto;height: auto;margin: 0px;">
+                <div class="col-auto col-md-10 text-center justify-content-center align-items-center align-self-center mx-auto">
+                    <!-- Start: Intro -->
+                    <div class="intro">
+                        <h1 class="text-center" style="font-family: 'Akaya Kanadaka', serif;color: rgb(35,85,105);font-weight: bold;">{{ cour.name }}</h1><!-- Start: Date and Author -->
+                        <p class="text-center"><span class="by">par</span> <a href="#" style="font-family: 'Akaya Kanadaka', serif;font-weight: bold;">{{user.username}}</a><span class="date" style="font-family: ABeeZee, sans-serif;font-style: italic;">{{cour.create_date}}</span></p><!-- End: Date and Author -->
+                        {% if cour.video %}
+                        <!-- Start: html5 video -->
+                        <video controls>
+                            <source src="{{ cour.video.url }}" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                        </video><!-- End: html5 video -->
+                        {% else %}
+                            <p style="margin-top: 50px; font-size= 40px; font-weight: bold; color: red;"> Pas de vidéo disponible</p>
+                        {% endif %}
+                    </div><!-- End: Intro -->
+                    <div class="row" style="width: auto;height: auto;margin: 0px;margin-bottom: 50px;">
+                        <div class="col-10 col-md-10 col-lg-8 text-center justify-content-center" style="text-align: center;">
+                            <!-- Start: Toc -->
+                            <div class="text-center toc">
+                                <p style="font-size: 15px;color: rgb(35,85,105);">Description</p>
+                            </div><!-- End: Toc -->
+                            <p class="text-center" style="padding: 17px;margin-bottom: 25px;margin-top: 10px;text-align: justify;"><br>{{ cour.description }}<br><br></p>
+                        </div>
+                        {% if cour.document %}
+                        <div class="col-md-10 col-lg-1 offset-md-0 offset-lg-0 text-center align-self-center" style="margin-top: 0;">
+                            <a href="{{cour.document.url}}">
+                                <i class="fas fa-file-pdf" style="width: 50px;height: 50px;font-size: 40px;color: var(--bs-red);"></i>
+                            </a>
+                        {% else %}
+                            <h1> Pas de documents disponible</h1>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End: Article Dual Column -->
+{% endblock content %}

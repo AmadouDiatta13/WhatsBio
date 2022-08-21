@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>WhatsBio</title>
+    {% load static %}
+    <link rel="stylesheet" href="{{ 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' }}">
+    <link rel="stylesheet" href="{{ 'https://fonts.googleapis.com/css?family=ABeeZee&amp;display=swap' }}">
+    <link rel="stylesheet" href="{{ 'https://fonts.googleapis.com/css?family=Akaya+Kanadaka&amp;display=swap' }}">
+    <link rel="stylesheet" href="{{ 'https://fonts.googleapis.com/css?family=Akronim&amp;display=swap' }}">
+    <link rel="stylesheet" href="{{ 'https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&amp;display=swap' }}">
+    <link rel="stylesheet" href="{{ 'https://fonts.googleapis.com/css?family=Lato&amp;display=swap' }}">
+    <link rel="stylesheet" href="{{ 'https://fonts.googleapis.com/css?family=Nunito+Sans&amp;display=swap' }}">
+    <link rel="stylesheet" href="{{ 'https://fonts.googleapis.com/css?family=Poppins&amp;display=swap' }}">
+    <link rel="stylesheet" href="{{ 'https://use.fontawesome.com/releases/v5.12.0/css/all.css' }}">
+    <link rel="stylesheet" href="{{ 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' }}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome5-overrides.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Article-Dual-Column.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Beautiful-Contact-from-animated.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Clean-Button-Scale-Hover-Effect.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Custom-Upload-File.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Features-Boxed.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/html5-video.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/LinkedIn-like-Profile-Box.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Responsive-UI-Card-02.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Search-Input-responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Social-Icon--hover-effect.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Swiper-Slider-Card-For-Blog-Or-Product-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Swiper-Slider-Card-For-Blog-Or-Product.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Vertical-Left-SideBar-by-Jigar-Mistry.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Profile-with-data-and-skills.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Login-Form-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Hover-cards.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Beautiful-Contact-from-animated-1.css' %}">
+</head>
+
+<body style="width: 100%;height: 100%;">
+    <!-- Start: OmEleSearchSimple -->
+    <form action="{% url 'searchApp' %}">
+        <div class="row row-cols-1 text-center justify-content-center align-items-center padMar" style="margin-left: 50px;margin-right: 0px;margin-top: 3rem;width: 100%;">
+            <div class="col-8 col-lg-12 offset-lg-0 mx-auto padMar" style="min-width: 100px;">
+                <div class="input-group align-self-center m-auto" style="max-width: 600px;margin-top: 50px;">
+                    <input type= "text" name="searchCourse" class="form-control form-control-sm autocomplete" type="text" placeholder="Trouver un cours" autocomplete="on" style="text-align: center;border-radius: 25px;border: 3px inset rgb(35,85,105);min-width: 98px;max-width: 22rem;">
+                    <button class="btn btn-warning" type="submit" style="border-radius: 25px;margin-left: 14px;">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div><!-- End: OmEleSearchSimple -->
+    </form>
+    <!-- Start: Vertical Left-SideBar by Jigar Mistry -->
+    <div class="main-leftsidebar-div" data-component="leftsidebar" style="color: rgb(35,85,105);">
+        <div class="leftsidebar">
+            <ul class="nav font-monospace text-nowrap text-capitalize text-start text-danger list-group flex-column d-inline-block first-menu scrollbar-indigo thin first-main-menu" style="border-top-right-radius: 25px;border-bottom-right-radius: 23px;border-top-left-radius: 0px;">
+                <li class="nav-item list-group-item ps-1 py-2" style="margin-bottom: 25px;margin-top: 94px;padding: 0;"><a class="nav-link active" href="{% url 'home' %}" style="font-weight: bold;padding: 0;color: rgb(255,60,0);"><i class="fas fa-home"><span class="ml-2 align-middle" href="#"> Accueil</span></i></a></li>
+                <li class="nav-item list-group-item ps-1 py-2" style="margin-bottom: 25px;margin-top: 60px;padding: 0;"><a class="nav-link active" href="{% url 'mycourses'%}" style="font-weight: bold;padding: 0;color: rgb(255,60,0);"><i class="fas fa-graduation-cap"><span class="ml-2 align-middle" href="#"> Mes Cours</span></i></a></li>
+                <li class="nav-item list-group-item ps-1 py-2" style="margin-bottom: 25px;margin-top: 60px;padding: 0;"><a class="nav-link active" href="{% url 'allcourses:categories' %}" style="font-weight: bold;padding: 0;color: rgb(255,60,0);"><i class="fas fa-book"><span class="ml-2 align-middle" href="#"> Tous Les Cours</span></i></a></li>
+                <li class="nav-item list-group-item ps-1 py-2" style="margin-bottom: 25px;margin-top: 60px;padding: 0;"><a class="nav-link active" href="{% url 'contact' %}" style="font-weight: bold;padding: 0;color: rgb(255,60,0);"><i class="fas fa-phone"><span class="ml-2 align-middle" href="#"> Contact</span></i></a></li>
+                <li class="nav-item list-group-item ps-1 py-2" style="margin-bottom: 25px;margin-top: 60px;padding: 0;"><a class="nav-link active" href="{% url 'account:connectaccount' %}" style="font-weight: bold;padding: 0;color: rgb(255,60,0);"><i class="fas fa-user"><span class="ml-2 align-middle" href="#"> Compte</span></i></a></li>
+            </ul>
+        </div>
+    </div><!-- End: Vertical Left-SideBar by Jigar Mistry -->
+    {% block content %}
+    {% endblock content %}
+    <script src="{{ 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' }}"></script>
+    <script src="{% static 'assets/js/Beautiful-Contact-from-animated.js'%}"></script>
+    <script src="{% static 'assets/js/Swiper-Slider-Card-For-Blog-Or-Product.js' %}"></script>
+    <script src="{% static 'assets/js/Custom-Upload-File.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+        <!-- Start: Hover cards -->
+        <div class="container" style="width: auto;height: 100%;margin-top: 1rem;margin-right: 0px;margin-left: 3rem;">
+            {% for categorie in categories %}
+            <a href="{% url 'allcourses:lecons' categorie.id %}">
+                <div class="card card1" style="margin: 20px 15px 30px;margin-right: 20px;margin-bottom: 20px;margin-left: 20px;font-family: ABeeZee, sans-serif;">
+                    <div class="card-body" style="font-size: 18px;">
+                        <h3 class="card-title" style="font-family: 'Akaya Kanadaka', serif;font-size: 15px;">{{ categorie.name }}</h3>
+                        <div class="go-corner">
+                            <div class="go-arrow"><div class="go-arrow">→</div></div>
+                        </div>
+                    </div>
+                    <img class="card-img-bottom w-100 d-block" style="height: 150px;" src="{{ categorie.image.url }}"></a>
+                </div>
+            </a>
+            {% endfor %}
+        </div><!-- End: Hover cards -->
+{% endblock %}

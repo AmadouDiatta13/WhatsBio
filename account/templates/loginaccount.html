@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Start: Login Form Clean -->
+    <section class="login-clean" style="width: auto;margin-left: 5rem;">
+        <form method="post">
+            {% csrf_token %}
+            <h2 class="visually-hidden">Login Form</h2>
+            {% if error %}
+                <h2 class="alert alert-danger mt-3"role="alert">
+                    {{ error }}
+                </h2>
+            {% endif %}
+            <div class="illustration"><i class="icon ion-ios-navigate" style="border-color: rgb(255,60,0);color: rgb(255,60,0);"></i></div>
+            <div class="mb-3"><input class="form-control" type="text" name="username" placeholder="Nom d'utilisateur" style="font-size: 13px;font-family: 'Akaya Kanadaka', serif;"></div>
+            <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Mot de Passe" style="font-size: 13px;font-family: 'Akaya Kanadaka', serif;"></div>
+            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(255,60,0);font-family: 'Akaya Kanadaka', serif;font-size: 15px;">Se Connecter</button></div><a class="forgot" href="#" style="font-family: 'Akaya Kanadaka', serif;">Avez-vous oublié votre mot de passe ?</a>
+        </form>
+    </section><!-- End: Login Form Clean -->
+{% endblock %}
