@@ -9,15 +9,16 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+
 
 import os
 from pathlib import Path
 import django_heroku
 import dj_database_url
 from decouple import config
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +33,7 @@ SECRET_KEY = 'django-insecure-m9sexjjck-sx@$v9ai4l$1#v$^j#re!vp#_#*gre+wm(+ur(vc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['whatsbio.herokuapp.com']
 
 
 # Application definition
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     'mycourse',
     'searchApp',
     'cloudinary',
+	'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -134,11 +136,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-cloudinary.config( 
-  cloud_name = "humktgjsa", 
-  api_key = "411469355174515", 
-  api_secret = "r2PZvIB03E3yG26F9drKLQUFCzY" 
-)
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -152,6 +150,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 django_heroku.settings(locals())
 
