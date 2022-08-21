@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 import os
 from pathlib import Path
@@ -47,6 +50,7 @@ INSTALLED_APPS = [
     'contact',
     'mycourse',
     'searchApp',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -130,6 +134,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+cloudinary.config( 
+  cloud_name = "humktgjsa", 
+  api_key = "411469355174515", 
+  api_secret = "r2PZvIB03E3yG26F9drKLQUFCzY" 
+)
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
